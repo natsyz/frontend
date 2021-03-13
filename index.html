@@ -6,15 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/c883358289.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Kampus Indonesia</title>
 </head>
 <body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="form">
+                <h3>LOGIN</h3>
+                <form action="">
+                    <label for="uname">Username:</label><br>
+                    <input type="text" id="uname" name="uname"><br>
+                    <label for="pass">Password:</label><br>
+                    <input type="text" id="pass" name="pass"><br><br>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
     <div id="nav">
         <div id="myTopNav" class="topnav" >
             <a href=""><img src="img/logo.png" alt="" style="width: 50px;"></a>
             
-            <a href="" style="color: #3C9AAD;">Login</a>
+            <a href="#" id="myBtn" style="color: #3C9AAD;">Login</a>
             <a href="">Blog</a>
             <a href="">Info Jurusan</a>
             <a href="">Program Studi</a>
@@ -73,14 +89,14 @@
                 <h3>LOKASI KAMPUS TERPOPULER</h3>
             </div>
             <div class="boxes">
-                <div class="box"><img src="img/city-one.png" alt="" srcset=""></div>
-                <div class="box"><img src="img/city-two.png" alt="" srcset=""></div>
-                <div class="box"><img src="img/city-three.png" alt="" srcset=""></div>
-                <div class="box"><img src="img/city-four.png" alt="" srcset=""></div>
-                <div class="box"><img src="img/city-five.png" alt="" srcset=""></div>
-                <div class="box"><img src="img/city-six.png" alt="" srcset=""></div>
-                <div class="box"><img src="img/city-seven.png" alt="" srcset=""></div>
-                <div class="box"><img src="img/city-eight.png" alt="" srcset=""></div>
+                <div class="box"><a href=""><img src="img/city-one.png" alt="" srcset=""></a></div>
+                <div class="box"><a href=""><img src="img/city-two.png" alt="" srcset=""></a></div>
+                <div class="box"><a href=""><img src="img/city-three.png" alt="" srcset=""></a></div>
+                <div class="box"><a href=""><img src="img/city-four.png" alt="" srcset=""></a></div>
+                <div class="box"><a href=""><img src="img/city-five.png" alt="" srcset=""></a></div>
+                <div class="box"><a href=""><img src="img/city-six.png" alt="" srcset=""></a></div>
+                <div class="box"><a href=""><img src="img/city-seven.png" alt="" srcset=""></a></div>
+                <div class="box"><a href=""><img src="img/city-eight.png" alt="" srcset=""></a></div>
             </div>
         </div>
     </div>
@@ -94,7 +110,7 @@
                     <button>Cari Lowongan</button>
                 </div>
                 <div class="box">
-                    <img src="img/Humaaans - 3 Characters 1.png" alt="">
+                    <img src="img/Humaaans - 3 Characters 1.png" alt="" class="lowongan-art">
                 </div>
             </div>
         </div>
@@ -108,23 +124,29 @@
             <div class="boxes">
                 <div class="box">
                     <a href="">
-                        <img src="img/article.png" alt="">
-                        <p>LOREM IPSUM DOLOR SIT AMET</p>
-                        <p class="article-tanggal">1 Januari 2021 0:0 AM</p>
+                        <div>
+                            <img src="img/article.png" alt="">
+                            <p>LOREM IPSUM DOLOR SIT AMET</p>
+                            <p class="article-tanggal">1 Januari 2021 0:0 AM</p>
+                        </div>
                     </a>
                 </div>
                 <div class="box">
                     <a href="">
-                        <img src="img/article.png" alt="">
-                        <p>LOREM IPSUM DOLOR SIT AMET</p>
-                        <p class="article-tanggal">1 Januari 2021 0:0 AM</p>
+                        <div>
+                            <img src="img/article.png" alt="">
+                            <p>LOREM IPSUM DOLOR SIT AMET</p>
+                            <p class="article-tanggal">1 Januari 2021 0:0 AM</p>
+                        </div>
                     </a>
                 </div>
                 <div class="box">
                     <a href="">
-                        <img src="img/article.png" alt="">
-                        <p>LOREM IPSUM DOLOR SIT AMET</p>
-                        <p class="article-tanggal">1 Januari 2021 0:0 AM</p>
+                        <div>
+                            <img src="img/article.png" alt="">
+                            <p>LOREM IPSUM DOLOR SIT AMET</p>
+                            <p class="article-tanggal">1 Januari 2021 0:0 AM</p>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -171,17 +193,35 @@
         </div>
     </div>
 </body>
+
 <script>
     function myFunction() {
-      var x = document.getElementById("myTopNav");
-      console.log("clicked");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-        console.log("if");
-      } else {
+        var x = document.getElementById("myTopNav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+    var modal = document.getElementById("myModal");
+    var x = document.getElementById("myTopNav");
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
         x.className = "topnav";
-        console.log("else")
-      }
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
 </script>
 </html>
