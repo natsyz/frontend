@@ -1,3 +1,3 @@
 # frontend
 
-[Github IO](natsyz.github.io/frontend)
+[Github IO](https://natsyz.github.io/frontend/)
